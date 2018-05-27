@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let myCell = MyCollectionViewCell()
         myCell.titleLabel.text = array[indexPath.item]
-        myCell.subtitleLabel.text = "subtitle here"
+        myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item]
         let optimalSize = myCell.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         let forcedSize = CGSize(width: 200, height: optimalSize.height)
         return forcedSize
