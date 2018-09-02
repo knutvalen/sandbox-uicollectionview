@@ -10,12 +10,15 @@ import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
     
+    let myMargin: CGFloat = 8
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24)
         label.textColor = .white
         label.backgroundColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -25,6 +28,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.backgroundColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -44,13 +48,13 @@ class MyCollectionViewCell: UICollectionViewCell {
         addSubview(titleLabel)
         addSubview(subtitleLabel)
         
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: myMargin).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -myMargin).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: myMargin).isActive = true
         
-        subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
-        subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: myMargin).isActive = true
+        subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -myMargin).isActive = true
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: myMargin).isActive = true
+        subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -myMargin).isActive = true
     }
 }

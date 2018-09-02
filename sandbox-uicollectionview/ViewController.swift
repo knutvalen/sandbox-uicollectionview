@@ -46,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if let myCell = cell as? MyCollectionViewCell {
             myCell.titleLabel.text = array[indexPath.item]
-            myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item]
+            myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item] + " is a very long text with many letters and words"
             return myCell
         }
         
@@ -56,11 +56,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let forcedWidth: CGFloat = 200
         let myCell = MyCollectionViewCell()
         myCell.titleLabel.text = array[indexPath.item]
-        myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item]
+        myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item] + " is a very long text with many letters and words"
+        myCell.subtitleLabel.preferredMaxLayoutWidth = forcedWidth - myCell.myMargin
         let optimalSize = myCell.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        let forcedSize = CGSize(width: 200, height: optimalSize.height)
+        let forcedSize = CGSize(width: forcedWidth, height: optimalSize.height)
         return forcedSize
     }
 }
