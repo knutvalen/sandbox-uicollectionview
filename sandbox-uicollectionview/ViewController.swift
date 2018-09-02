@@ -60,7 +60,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let myCell = MyCollectionViewCell()
         myCell.titleLabel.text = array[indexPath.item]
         myCell.subtitleLabel.text = "my subtitle for " + array[indexPath.item] + " is a very long text with many letters and words"
-        myCell.subtitleLabel.preferredMaxLayoutWidth = forcedWidth - myCell.myMargin
+        myCell.subtitleLabel.preferredMaxLayoutWidth = forcedWidth - (myCell.myMargin * 2)
         let optimalSize = myCell.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         let forcedSize = CGSize(width: forcedWidth, height: optimalSize.height)
         return forcedSize
